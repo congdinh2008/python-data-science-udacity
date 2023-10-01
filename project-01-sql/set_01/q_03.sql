@@ -11,7 +11,7 @@
 
 -- HINT: One way to solve this question requires the use of Percentiles, Window functions and Case statements.
 
--- Version 01:ACCESS
+-- Version 01:
 WITH FamilyFriendlyMovies AS (
     SELECT
         c.name AS category_name,
@@ -30,7 +30,7 @@ WITH FamilyFriendlyMovies AS (
 SELECT
     ffm.category_name,
     ffm.standard_quartile,
-    COUNT(*) AS "Movie Count"
+    COUNT(*) AS count
 FROM
     FamilyFriendlyMovies AS ffm
 GROUP BY
@@ -65,7 +65,7 @@ SELECT
         WHEN ffm.standard_quartile = 3 THEN 'Third Quartile'
         ELSE 'Final Quartile'
     END AS "Rental Duration Quartile",
-    COUNT(*) AS "Movie Count"
+    COUNT(*) AS count
 FROM
     FamilyFriendlyMovies AS ffm
 GROUP BY
