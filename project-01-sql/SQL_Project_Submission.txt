@@ -1,0 +1,266 @@
+=============================================
+-- Question 1
+-- We want to understand more about the movies that families are watching. The following categories are considered family movies: Animation, Children, Classics, Comedy, Family and Music.
+
+-- Create a query that lists each movie, the film category it is classified in, and the number of times it has been rented out.
+=============================================
+
+SELECT
+    f.title AS film_title,
+    c.name AS category_name,
+    COUNT(r.rental_id) AS rental_count
+FROM
+    category AS c
+    JOIN film_category AS fc
+    ON c.category_id = fc.category_id
+        AND c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+    JOIN film AS f
+    ON f.film_id = fc.film_id
+    JOIN inventory AS i
+    ON f.film_id = i.film_id
+    JOIN rental AS r
+    ON i.inventory_id = r.inventory_id
+GROUP BY
+    f.title, c.name
+ORDER BY
+    c.name, f.title;
+
+=============================================
+-- Question 2
+-- Now we need to know how the length of rental duration of these family-friendly movies compares to the duration that all movies are rented for. 
+-- Can you provide a table with the movie titles and divide them into 4 levels (first_quarter, second_quarter, third_quarter, and final_quarter) 
+-- based on the quartiles (25%, 50%, 75%) of the average rental duration(in the number of days) for movies across all categories? 
+-- Make sure to also indicate the category that these family-friendly movies fall into.
+
+-- Check Your Solution
+-- The data are not very spread out to create a very fun looking solution, but you should see something like the following if you correctly split your data. 
+-- You should only need the category, film_category, and film tables to answer this and the next questions. 
+
+-- HINT: One way to solve it requires the use of percentiles, Window functions, subqueries or temporary tables.
+=============================================
+
+-- Version 01: 
+
+WITH FamilyMovies AS (
+    SELECT
+        f.title AS film_title,
+        c.name AS category_name,
+        f.rental_duration
+    FROM
+        category AS c
+    JOIN
+        film_category AS fc
+        ON c.category_id = fc.category_id
+        AND c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+    JOIN
+        film AS f
+        ON f.film_id = fc.film_id
+    ORDER BY
+        category_name, film_title
+)
+, Quartiles AS (
+    SELECT
+        *,
+        NTILE(4) OVER (ORDER BY rental_duration) AS standard_quartile
+    FROM
+        FamilyMovies
+)
+SELECT 
+    *
+FROM
+    Quartiles;
+
+
+
+
+-- Version 02:
+
+WITH FamilyMovies AS (
+    SELECT
+        f.title AS film_title,
+        c.name AS category_name,
+        f.rental_duration
+    FROM
+        category AS c
+    JOIN
+        film_category AS fc
+        ON c.category_id = fc.category_id
+        AND c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+    JOIN
+        film AS f
+        ON f.film_id = fc.film_id
+    ORDER BY
+        category_name, film_title
+)
+, Quartiles AS (
+    SELECT
+        *,
+        NTILE(4) OVER (ORDER BY rental_duration) AS standard_quartile
+    FROM
+        FamilyMovies
+)
+SELECT
+    *,
+    CASE
+        WHEN standard_quartile = 1 THEN 'first_quarter'
+        WHEN standard_quartile = 2 THEN 'second_quarter'
+        WHEN standard_quartile = 3 THEN 'third_quarter'
+        ELSE 'final_quarter'
+    END AS rental_duration_quartile
+FROM
+    Quartiles;
+
+
+=============================================
+-- Question 3
+-- Finally, provide a table with the family-friendly film category, each of the quartiles, 
+-- and the corresponding count of movies within each combination of film category for each corresponding rental duration category. 
+-- The resulting table should have three columns:
+--      Category
+--      Rental length category
+--      Count
+
+-- Check Your Solution
+-- The following table header provides a preview of what your table should look like. The Count column should be sorted first by Category and then by Rental Duration category.
+
+-- HINT: One way to solve this question requires the use of Percentiles, Window functions and Case statements.
+=============================================
+
+-- Version 01:
+WITH FamilyFriendlyMovies AS (
+    SELECT
+        c.name AS category_name,
+        f.rental_duration,
+        NTILE(4) OVER (ORDER BY f.rental_duration) AS standard_quartile
+    FROM
+        category AS c
+    JOIN
+        film_category AS fc
+        ON c.category_id = fc.category_id 
+        AND c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+    JOIN
+        film AS f
+        ON f.film_id = fc.film_id
+)
+SELECT
+    ffm.category_name,
+    ffm.standard_quartile,
+    COUNT(*) AS count
+FROM
+    FamilyFriendlyMovies AS ffm
+GROUP BY
+    ffm.category_name, ffm.standard_quartile
+ORDER BY
+    ffm.category_name, ffm.standard_quartile;
+
+
+-- Version 02:
+
+WITH FamilyFriendlyMovies AS (
+    SELECT
+        c.name AS category_name,
+        f.rental_duration,
+        NTILE(4) OVER (ORDER BY f.rental_duration) AS standard_quartile
+    FROM
+        category AS c
+    JOIN
+        film_category AS fc
+        ON c.category_id = fc.category_id 
+        AND c.name IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+    JOIN
+        film AS f
+        ON f.film_id = fc.film_id
+)
+SELECT
+    ffm.category_name,
+    ffm.standard_quartile,
+    CASE
+        WHEN ffm.standard_quartile = 1 THEN 'First Quartile'
+        WHEN ffm.standard_quartile = 2 THEN 'Second Quartile'
+        WHEN ffm.standard_quartile = 3 THEN 'Third Quartile'
+        ELSE 'Final Quartile'
+    END AS "Rental Duration Quartile",
+    COUNT(*) AS count
+FROM
+    FamilyFriendlyMovies AS ffm
+GROUP BY
+    ffm.category_name, ffm.standard_quartile
+ORDER BY
+    ffm.category_name, ffm.standard_quartile;
+
+
+=============================================
+-- Question 4
+-- We would like to know who were our top 10 paying customers, how many payments they made on a monthly basis during 2007, and what was the amount of the monthly payments. 
+-- Can you write a query to capture the customer name, month and year of payment, and total payment amount for each month by these top 10 paying customers?
+
+-- Check your Solution:
+-- The following table header provides a preview of what your table should look like. The results are sorted first by customer name and then for each month. 
+-- As you can see, total amounts per month are listed for each customer.
+
+-- HINT: One way to solve is to use a subquery, limit within the subquery, and use concatenation to generate the customer name.
+=============================================
+
+-- Version 01: 
+WITH TopPayingCustomers AS (
+    -- Subquery to find the top 10 paying customers
+    SELECT 
+        c.first_name || ' ' || c.last_name AS fullname, 
+        SUM(p.amount) AS amount_total
+    FROM 
+        customer c
+    JOIN 
+        payment p
+        ON p.customer_id = c.customer_id
+    WHERE 
+        p.payment_date BETWEEN '2007-01-01' AND '2008-01-01'
+    GROUP BY 
+        fullname
+    ORDER BY 
+        amount_total DESC
+    LIMIT 10
+)
+SELECT 
+    DATE_TRUNC('month', p.payment_date) AS pay_mon, 
+    c.first_name || ' ' || c.last_name AS fullname, 
+    COUNT(p.amount) AS pay_countpermon, 
+    SUM(p.amount) AS pay_amount
+FROM 
+    customer c
+JOIN 
+    payment p
+    ON p.customer_id = c.customer_id
+WHERE 
+    c.first_name || ' ' || c.last_name IN (SELECT fullname FROM TopPayingCustomers)
+    AND p.payment_date BETWEEN '2007-01-01' AND '2008-01-01'
+GROUP BY 
+    pay_mon, fullname
+ORDER BY 
+    fullname, pay_mon, pay_countpermon;
+
+
+-- Version 02:
+SELECT 
+    DATE_TRUNC('month', p.payment_date) pay_mon, c.first_name || ' ' || c.last_name AS fullname, 
+    COUNT(p.amount) AS pay_countpermon, 
+    SUM(p.amount) AS pay_amount
+FROM customer c
+JOIN payment p
+    ON p.customer_id = c.customer_id
+WHERE 
+    c.first_name || ' ' || c.last_name IN (
+        SELECT t1.fullname
+        FROM (
+            SELECT 
+                c.first_name || ' ' || c.last_name AS fullname, 
+                SUM(p.amount) as amount_total
+            FROM customer c
+            JOIN payment p
+            ON p.customer_id = c.customer_id
+            GROUP BY fullname
+            ORDER BY amount_total DESC
+            LIMIT 10
+        ) t1) 
+        AND (p.payment_date BETWEEN '2007-01-01' AND '2008-01-01')
+GROUP BY fullname, pay_mon
+ORDER BY fullname, pay_mon, pay_countpermon;
