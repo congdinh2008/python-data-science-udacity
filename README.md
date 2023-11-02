@@ -3,11 +3,15 @@
 - [Programming for Data Science with Python - Udacity](#programming-for-data-science-with-python---udacity)
   - [Project 01 - SQL](#project-01---sql)
     - [Project Overview](#project-overview)
+    - [Introduction](#introduction)
+    - [Dependencies](#dependencies)
+    - [Folder Structure](#folder-structure)
+    - [How to run the script](#how-to-run-the-script)
   - [Project 02 - Python](#project-02---python)
     - [Project Overview](#project-overview-1)
     - [Tools or Dependencies](#tools-or-dependencies)
-    - [Folder Structure](#folder-structure)
-    - [How to run the script](#how-to-run-the-script)
+    - [Folder Structure](#folder-structure-1)
+    - [How to run the script](#how-to-run-the-script-1)
 
 
 ## Project 01 - SQL
@@ -28,6 +32,55 @@ You will submit your project at the end of the project lessons. Your project wil
 A set of slides with a question, visualization, and small summary on each slide.
 A text file with your queries needed to answer each of the four questions.
 The essentials of your project submission are discussed on the page labeled as Project Submission.
+
+### Introduction
+
+In this project, you will query the Sakila DVD Rental database. The Sakila Database holds information about a company that rents movie DVDs. For this project, you will be querying the database to gain an understanding of the customer base, such as what the patterns in movie watching are across different customer groups, how they compare on payment earnings, and how the stores compare in their performance. To assist you in the queries ahead, the schema for the DVD Rental database is provided below.
+
+(Note: One quirk you may notice as you explore this "fake" database is that the rental dates are all from 2005 and 2006, while the payment dates are all from 2007. Don't worry about this. )
+
+<img src="https://video.udacity-data.com/topher/2018/September/5ba95d23_dvd-rental-erd-2/dvd-rental-erd-2.png">
+
+Source: 
+[http://www.postgresqltutorial.com/postgresql-sample-database/](http://www.postgresqltutorial.com/postgresql-sample-database/)
+
+Supporting Materials:
+[DVD Rental ERD 2](https://video.udacity-data.com/topher/2018/September/5ba96b12_dvd-rental-erd-2/dvd-rental-erd-2.pdf)
+
+### Dependencies
+
+To complete this project, the following software requirements apply:
+
+- Download and install PostgreSQL. You can find installation instructions for your operating system here: [PostgreSQL Downloads](https://www.postgresql.org/download/).
+- Download and install Azure Data Studio. You can find installation instructions for your operating system here: [Azure Data Studio Installation](https://docs.microsoft.com/en-us/sql/azure-data-studio/download?view=sql-server-ver15).
+
+- Download the DVD Rental database from here: [PostgreSQL Sample Database](http://www.postgresqltutorial.com/postgresql-sample-database/)
+
+- Download PGAdmin from here: [PGAdmin](https://www.pgadmin.org/download/)
+
+### Folder Structure
+
+Go to project-01-sql and you will find the following
+
+```
+    ├── set_01
+    ├── set_02
+    ├── SQL_Project_Submission.pdf
+    ├── SQL_Project_Submission.pptx
+    ├── SQL_Project_Submission.txt
+```
+
+### How to run the script
+
+Open the Azure Data Studio and connect to the database
+
+Execute the queries in the set_01 or set_02 folder
+
+You can execute python script to generate the visualizations
+
+```bash
+    python q_*.py
+```
 
 ## Project 02 - Python
 
