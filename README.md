@@ -5,11 +5,13 @@
     - [Project Overview](#project-overview)
     - [Introduction](#introduction)
     - [Dependencies](#dependencies)
+    - [Folder Structure](#folder-structure)
+    - [How to run the script](#how-to-run-the-script)
   - [Project 02 - Python](#project-02---python)
     - [Project Overview](#project-overview-1)
     - [Tools or Dependencies](#tools-or-dependencies)
-    - [Folder Structure](#folder-structure)
-    - [How to run the script](#how-to-run-the-script)
+    - [Folder Structure](#folder-structure-1)
+    - [How to run the script](#how-to-run-the-script-1)
 
 
 ## Project 01 - SQL
@@ -55,6 +57,30 @@ To complete this project, the following software requirements apply:
 - Download the DVD Rental database from here: [PostgreSQL Sample Database](http://www.postgresqltutorial.com/postgresql-sample-database/)
 
 - Download PGAdmin from here: [PGAdmin](https://www.pgadmin.org/download/)
+
+### Folder Structure
+
+Go to project-01-sql and you will find the following
+
+```
+    ├── set_01
+    ├── set_02
+    ├── SQL_Project_Submission.pdf
+    ├── SQL_Project_Submission.pptx
+    ├── SQL_Project_Submission.txt
+```
+
+### How to run the script
+
+Open the Azure Data Studio and connect to the database
+
+Execute the queries in the set_01 or set_02 folder
+
+You can execute python script to generate the visualizations
+
+```bash
+    python q_*.py
+```
 
 ## Project 02 - Python
 
