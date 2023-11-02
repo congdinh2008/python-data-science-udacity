@@ -1,3 +1,4 @@
 **/.udacity/**
 .DS_Store
 project-01-sql.zip
+**/*.csv
