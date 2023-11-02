@@ -17,6 +17,13 @@ def choice(question, options):
         answer = input(question).lower().strip()
         if answer == 'exit':
             raise SystemExit
+        # check if answer contains all
+        elif 'all' in answer:
+            # if answer contains all, return all options
+            # list all options in a string
+            options = ', '.join(options)
+            answer = options.split(', ')
+            break
         elif ',' in answer:
             answer = [x.strip().lower() for x in answer.split(',')]
             if list(filter(lambda x: x in options, answer)) == answer:
@@ -46,20 +53,20 @@ def get_filters():
     while True:
         # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
         city = choice(
-            'Would you like to see data for Chicago, New York City, Washington?\n', CITY_DATA.keys())
+            'Would you like to see data for Chicago, New York City, Washington or "all" to apply no city filter?\n', CITY_DATA.keys())
 
         # get user input for month (all, january, february, ... , june)
         month = choice(
-            'Which month? January, February, March, April, May, June?\n', MONTHS)
+            'Which month? January, February, March, April, May, June or "all" to apply no month filter?\n', MONTHS)
 
         # get user input for day of week (all, monday, tuesday, ... sunday)
         day = choice(
-            'Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday?\n', WEEKDAYS)
+            'Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or "all" to apply no day filter?\n', WEEKDAYS)
 
         confirm = choice(
-            'You want to see data for {} in {} on {}?\n'.format(city, month, day), ('yes', 'no'))
+            'You want to see data for {} in {} on {}?\nEnter [y]yes or [n]no:\n'.format(city, month, day), ('y', 'n'))
 
-        if confirm == 'yes':
+        if confirm == 'y':
             break
         else:
             print('Please try again.')
@@ -158,10 +165,18 @@ def station_stats(df):
     start_time = time.time()
 
     # display most commonly used start station
+    mostCommonStartStation = str(df['Start Station'].mode()[0])
+    print('Most common start station: {}'.format(mostCommonStartStation))
 
     # display most commonly used end station
+    mostCommonEndStation = str(df['End Station'].mode()[0])
+    print('Most common end station: {}'.format(mostCommonEndStation))
 
     # display most frequent combination of start station and end station trip
+    mostCommonCombination = df.groupby(
+        ['Start Station', 'End Station']).size().idxmax()
+    print('Most common combination of start station and end station trip: {}'.format(
+        mostCommonCombination))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -174,8 +189,27 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # display total travel time
+    totalTravelTime = df['Trip Duration'].sum()
+    # Format seconds to days, hours, minutes, and seconds
+    totalTravelTime = (str(int(totalTravelTime//86400)) +
+                       'd ' +
+                       str(int((totalTravelTime % 86400)//3600)) +
+                       'h ' +
+                       str(int(((totalTravelTime % 86400) % 3600)//60)) +
+                       'm ' +
+                       str(int(((totalTravelTime % 86400) % 3600) % 60)) +
+                       's')
+
+    # Print total travel time
+    print('Total travel time: {}'.format(totalTravelTime))
 
     # display mean travel time
+    meanTravelTime = df['Trip Duration'].mean()
+    # Format seconds to days, hours, minutes, and seconds
+    meanTravelTime = (str(int(meanTravelTime//60)) + 'm ' +
+                      str(int(meanTravelTime % 60)) + 's')
+    # Print mean travel time
+    print('Mean travel time: {}'.format(meanTravelTime))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -188,10 +222,22 @@ def user_stats(df):
     start_time = time.time()
 
     # Display counts of user types
+    countOfUserTypes = df['User Type'].value_counts().to_string()
+    print('Count of user types: {}'.format(countOfUserTypes))
 
     # Display counts of gender
+    countOfGender = df['Gender'].value_counts().to_string()
+    print('Count of user gender: {}'.format(countOfGender))
 
     # Display earliest, most recent, and most common year of birth
+    earliestYearOfBirth = int(df['Birth Year'].min())
+    print('Earliest year of birth: {}'.format(earliestYearOfBirth))
+
+    mostRecentYearOfBirth = int(df['Birth Year'].max())
+    print('Most recent year of birth: {}'.format(mostRecentYearOfBirth))
+
+    mostCommonYearOfBirth = int(df['Birth Year'].mode()[0])
+    print('Most common year of birth: {}'.format(mostCommonYearOfBirth))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -202,16 +248,46 @@ def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
-        # show df
-        print(df.to_string())
+        # Create a menu to allow the user to choose menu the below options to filter the data
+        # 1. Display raw data
+        # 2. Time stats
+        # 3. Station stats
+        # 4. Trip duration stats
+        # 5. User stats
+        # 6. Restart
+        # 7. Exit
 
-        time_stats(df)
-        # station_stats(df)
-        # trip_duration_stats(df)
-        # user_stats(df)
+        while True:
+            menu = choice(
+                '\nPlease choose one of the options below:\n'
+                '1. Display raw data\n'
+                '2. Time stats\n'
+                '3. Station stats\n'
+                '4. Trip duration stats\n'
+                '5. User stats\n'
+                '6. Restart\n'
+                '7. Exit\n', ('1', '2', '3', '4', '5', '6', '7'))
+            if menu == '1':
+                numberOfRow = input('How many rows do you want to display?\n')
+                print(df.head(int(numberOfRow)).to_string())
+            elif menu == '2':
+                time_stats(df)
+            elif menu == '3':
+                station_stats(df)
+            elif menu == '4':
+                trip_duration_stats(df)
+            elif menu == '5':
+                user_stats(df)
+            elif menu == '6':
+                break
+            elif menu == '7':
+                raise SystemExit
+            else:
+                print('Please enter a valid option.')
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
-        if restart.lower() != 'yes':
+        restart = input(
+            '\nWould you like to restart? Enter [y]yes or [n]no.\n')
+        if restart.lower() != 'y':
             break
 
 
