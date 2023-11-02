@@ -59,7 +59,22 @@ Go to project-02-python folder and you will find the following:
 
 ### How to run the script
 
-Open the terminal and go to the project-02-python folder and run the following command:
+Open the terminal and go to the project-02-python folder
+
+Create a virtual environment and activate it
+
+```bash
+    python -m venv venv
+    source venv/bin/activate
+```
+
+Install the dependencies
+
+```bash
+    pip install -r requirements.txt
+```
+
+Run the script
 
 ```bash
     python bikeshare_2.py
