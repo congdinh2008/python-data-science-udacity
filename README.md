@@ -100,7 +100,6 @@ To complete this project, the following software requirements apply:
 
 ### Folder Structure
 
-The project files are organized in the following way:
 Go to project-02-python folder and you will find the following:
 
 ```bash
@@ -111,6 +110,9 @@ Go to project-02-python folder and you will find the following:
 ```
 
 ### How to run the script
+
+Download the data from the following links and place all of csv files in the project-02-python folder:
+Data Source: [Divvy Data](https://drive.google.com/file/d/1F3bp6IXNZhE7SVzNU7VGblTTmT3iarlR/view?usp=sharing)
 
 Open the terminal and go to the project-02-python folder
 
