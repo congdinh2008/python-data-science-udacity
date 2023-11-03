@@ -129,7 +129,7 @@ def load_data(city, month, day):
     if isinstance(month, list):
         df = pd.concat(map(lambda month: df[df['Month'] ==
                            (MONTHS.index(month)+1)], month))
-    elif month != 'all':
+    else:
         df = df[df['Month'] == MONTHS.index(month) + 1]
 
     # filter by day of week if applicable
@@ -137,8 +137,8 @@ def load_data(city, month, day):
     if isinstance(day, list):
         df = pd.concat(map(lambda day: df[df['Weekday'] ==
                            (day.title())], day))
-    elif day != 'all':
-        df = df[df['Day'] == day.title()]
+    else:
+        df = df[df['Weekday'] == day.title()]
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
