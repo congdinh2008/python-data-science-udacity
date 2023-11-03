@@ -1,0 +1,648 @@
+(.udacity) congdinh@CONGs-MacBook-Pro project-02-python % python bikeshare_2.py
+Hello! Let's explore some US bikeshare data!
+Please enter exit if you want to exit program.
+Would you like to see data for Chicago, New York City, Washington or "all" to apply no city filter?
+chicago
+Which month? January, February, March, April, May, June or "all" to apply no month filter?
+MAy
+Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or "all" to apply no day filter?
+MONday
+You want to see data for chicago in may on monday?
+Enter [y]yes or [n]no:
+y
+----------------------------------------
+=================== Loading data... ===================
+
+This took 0.44617223739624023 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+1
+How many rows do you want to display?
+2
+    Unnamed: 0          Start Time             End Time  Trip Duration             Start Station                End Station   User Type Gender  Birth Year  Month Weekday  Start Hour
+43      915409 2017-05-22 05:49:43  2017-05-22 05:51:15             92  Clark St & Congress Pkwy  LaSalle St & Jackson Blvd  Subscriber   Male      1967.0      5  Monday           5
+54      702079 2017-05-01 08:35:17  2017-05-01 08:49:02            825   Sedgwick St & North Ave      Michigan Ave & Oak St  Subscriber   Male      1983.0      5  Monday           8
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+2
+
+Calculating The Most Frequent Times of Travel...
+
+Most Common Month: May
+Most common day of week: Monday
+Most common start hour: 17
+
+This took 0.0021948814392089844 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+3
+
+Calculating The Most Popular Stations and Trip...
+
+Most common start station: Streeter Dr & Grand Ave
+Most common end station: Streeter Dr & Grand Ave
+Most common combination of start station and end station trip: ('Lake Shore Dr & Monroe St', 'Streeter Dr & Grand Ave')
+
+This took 0.0037300586700439453 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+4
+
+Calculating Trip Duration...
+
+Total travel time: 146d 22h 59m 11s
+Mean travel time: 17m 31s
+
+This took 0.00020360946655273438 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+5
+
+Calculating User Stats...
+
+Count of user types: User Type
+Subscriber    8962
+Customer      3118
+Count of user gender: Gender
+Male      6717
+Female    2246
+Earliest year of birth: 1906
+Most recent year of birth: 2001
+Most common year of birth: 1989
+
+This took 0.0015869140625 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+7
+(.udacity) congdinh@CONGs-MacBook-Pro project-02-python % python bikeshare_2.py
+Hello! Let's explore some US bikeshare data!
+Please enter exit if you want to exit program.
+Would you like to see data for Chicago, New York City, Washington or "all" to apply no city filter?
+Chicago
+Which month? January, February, March, April, May, June or "all" to apply no month filter?
+APril 
+Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or "all" to apply no day filter?
+MOnDAY       
+You want to see data for chicago in april on monday?
+Enter [y]yes or [n]no:
+y
+----------------------------------------
+=================== Loading data... ===================
+
+This took 0.4470210075378418 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+1
+How many rows do you want to display?
+10
+     Unnamed: 0          Start Time             End Time  Trip Duration                 Start Station                End Station   User Type  Gender  Birth Year  Month Weekday  Start Hour
+64       445106 2017-04-03 06:31:20  2017-04-03 06:43:33            733  Clinton St & Washington Blvd  Halsted St & Roosevelt Rd  Subscriber    Male      1966.0      4  Monday           6
+160      575431 2017-04-17 16:50:44  2017-04-17 16:57:43            419  Michigan Ave & Washington St        Canal St & Adams St  Subscriber    Male      1981.0      4  Monday          16
+188      571747 2017-04-17 11:26:27  2017-04-17 11:43:19           1012           Wood St & Taylor St       Orleans St & Ohio St  Subscriber    Male      1986.0      4  Monday          11
+260      502616 2017-04-10 15:14:58  2017-04-10 15:24:59            601          Rhodes Ave & 32nd St    Wentworth Ave & 35th St  Subscriber    Male      1994.0      4  Monday          15
+277      500061 2017-04-10 08:02:50  2017-04-10 08:13:22            632        Wabash Ave & Wacker Pl   LaSalle St & Illinois St    Customer     NaN         NaN      4  Monday           8
+301      499816 2017-04-10 07:39:21  2017-04-10 07:52:32            791      Loomis St & Jackson Blvd        Wabash Ave & 8th St  Subscriber    Male      1961.0      4  Monday           7
+302      572941 2017-04-17 13:23:27  2017-04-17 13:35:03            696         Franklin St & Lake St    Sedgwick St & North Ave  Subscriber    Male      1968.0      4  Monday          13
+405      569630 2017-04-17 08:11:42  2017-04-17 08:22:03            621     Wabash Ave & Roosevelt Rd        Canal St & Adams St  Subscriber    Male      1967.0      4  Monday           8
+512      648515 2017-04-24 16:07:35  2017-04-24 16:37:26           1791         Emerald Ave & 28th St      Shields Ave & 31st St    Customer     NaN         NaN      4  Monday          16
+520      578906 2017-04-17 21:09:33  2017-04-17 21:20:11            638    Franklin St & Jackson Blvd      Dearborn St & Erie St  Subscriber  Female      1977.0      4  Monday          21
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+2
+
+Calculating The Most Frequent Times of Travel...
+
+Most Common Month: April
+Most common day of week: Monday
+Most common start hour: 17
+
+This took 0.0018649101257324219 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+3
+
+Calculating The Most Popular Stations and Trip...
+
+Most common start station: Clinton St & Washington Blvd
+Most common end station: Clinton St & Madison St
+Most common combination of start station and end station trip: ('Lake Shore Dr & Monroe St', 'Lake Shore Dr & Monroe St')
+
+This took 0.002889871597290039 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+4
+
+Calculating Trip Duration...
+
+Total travel time: 65d 22h 44m 58s
+Mean travel time: 14m 1s
+
+This took 0.00021004676818847656 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+5
+
+Calculating User Stats...
+
+Count of user types: User Type
+Subscriber    5798
+Customer       977
+Count of user gender: Gender
+Male      4508
+Female    1295
+Earliest year of birth: 1900
+Most recent year of birth: 2016
+Most common year of birth: 1989
+
+This took 0.0011992454528808594 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+7
+(.udacity) congdinh@CONGs-MacBook-Pro project-02-python % python bikeshare_2.py
+Hello! Let's explore some US bikeshare data!
+Please enter exit if you want to exit program.
+Would you like to see data for Chicago, New York City, Washington or "all" to apply no city filter?
+CHICAGO
+Which month? January, February, March, April, May, June or "all" to apply no month filter?
+maRCH
+Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or "all" to apply no day filter?
+FRIday
+You want to see data for chicago in march on friday?
+Enter [y]yes or [n]no:
+y
+----------------------------------------
+=================== Loading data... ===================
+
+This took 0.4457828998565674 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+1
+How many rows do you want to display?
+10
+     Unnamed: 0          Start Time             End Time  Trip Duration                   Start Station                      End Station   User Type  Gender  Birth Year  Month Weekday  Start Hour
+37       395803 2017-03-24 15:35:55  2017-03-24 15:46:10            615           Dearborn St & Erie St          State St & Van Buren St  Subscriber    Male      1989.0      3  Friday          15
+93       395735 2017-03-24 15:32:04  2017-03-24 15:52:53           1249       Sedgwick St & Webster Ave      Western Ave & Winnebago Ave  Subscriber  Female      1964.0      3  Friday          15
+175      395402 2017-03-24 15:10:29  2017-03-24 15:19:44            555         Franklin St & Monroe St          Aberdeen St & Monroe St  Subscriber    Male      1987.0      3  Friday          15
+190      393400 2017-03-24 12:29:30  2017-03-24 12:48:56           1166  Southport Ave & Wellington Ave       Lake Shore Dr & North Blvd  Subscriber  Female      1984.0      3  Friday          12
+198      427496 2017-03-31 08:25:53  2017-03-31 08:39:09            796       Clinton St & Jackson Blvd  Racine Ave (May St) & Fulton St  Subscriber    Male      1983.0      3  Friday           8
+232      391555 2017-03-24 08:41:22  2017-03-24 08:50:16            534    Clinton St & Washington Blvd     Financial Pl & Congress Pkwy  Subscriber    Male      1963.0      3  Friday           8
+248      334159 2017-03-10 22:17:28  2017-03-10 22:37:53           1225        Damen Ave & Augusta Blvd      Lincoln Ave & Diversey Pkwy  Subscriber    Male      1988.0      3  Friday          22
+251      393341 2017-03-24 12:24:00  2017-03-24 12:53:25           1765         Streeter Dr & Grand Ave          Clark St & Armitage Ave    Customer     NaN         NaN      3  Friday          12
+297      351986 2017-03-17 06:18:10  2017-03-17 06:25:06            416         Clinton St & Madison St          State St & Van Buren St  Subscriber    Male      1960.0      3  Friday           6
+311      428458 2017-03-31 12:19:26  2017-03-31 12:36:56           1050                 McCormick Place               Daley Center Plaza  Subscriber    Male      1985.0      3  Friday          12
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+2
+
+Calculating The Most Frequent Times of Travel...
+
+Most Common Month: March
+Most common day of week: Friday
+Most common start hour: 17
+
+This took 0.0011341571807861328 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+3
+
+Calculating The Most Popular Stations and Trip...
+
+Most common start station: Clinton St & Washington Blvd
+Most common end station: Clinton St & Washington Blvd
+Most common combination of start station and end station trip: ('Streeter Dr & Grand Ave', 'Streeter Dr & Grand Ave')
+
+This took 0.002444028854370117 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+4
+
+Calculating Trip Duration...
+
+Total travel time: 50d 6h 41m 39s
+Mean travel time: 12m 27s
+
+This took 0.0001919269561767578 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+5
+
+Calculating User Stats...
+
+Count of user types: User Type
+Subscriber    5243
+Customer       570
+Count of user gender: Gender
+Male      4145
+Female    1098
+Earliest year of birth: 1918
+Most recent year of birth: 2016
+Most common year of birth: 1989
+
+This took 0.0010743141174316406 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+7
+(.udacity) congdinh@CONGs-MacBook-Pro project-02-python % python bikeshare_2.py
+Hello! Let's explore some US bikeshare data!
+Please enter exit if you want to exit program.
+Would you like to see data for Chicago, New York City, Washington or "all" to apply no city filter?
+cHicAgo
+Which month? January, February, March, April, May, June or "all" to apply no month filter?
+JanuarY
+Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or "all" to apply no day filter?
+SUNDay
+You want to see data for chicago in january on sunday?
+Enter [y]yes or [n]no:
+y
+----------------------------------------
+=================== Loading data... ===================
+
+This took 0.4411649703979492 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+1
+How many rows do you want to display?
+10
+     Unnamed: 0          Start Time             End Time  Trip Duration                   Start Station                      End Station   User Type  Gender  Birth Year  Month Weekday  Start Hour
+11        71678 2017-01-22 15:15:45  2017-01-22 15:31:02            917  Southport Ave & Wellington Ave           Clark St & Schiller St  Subscriber    Male      1964.0      1  Sunday          15
+12        19061 2017-01-08 16:03:00  2017-01-08 16:07:37            277           Green St & Madison St         Ada St & Washington Blvd  Subscriber    Male      1961.0      1  Sunday          16
+120        1647 2017-01-01 21:06:09  2017-01-01 21:10:37            268       Sedgwick St & Webster Ave      Halsted St & Wrightwood Ave  Subscriber    Male      1984.0      1  Sunday          21
+143       18745 2017-01-08 13:23:19  2017-01-08 13:28:52            333          State St & Harrison St               Wells St & Polk St  Subscriber    Male      1954.0      1  Sunday          13
+234        1188 2017-01-01 16:09:40  2017-01-01 16:16:08            388    Cornell Ave & Hyde Park Blvd          Greenwood Ave & 47th St  Subscriber    Male      1966.0      1  Sunday          16
+409       71771 2017-01-22 15:38:09  2017-01-22 15:42:32            263        Racine Ave & Belmont Ave       Halsted St & Diversey Pkwy  Subscriber    Male      1986.0      1  Sunday          15
+415       39985 2017-01-15 12:22:38  2017-01-15 12:36:17            819      Indiana Ave & Roosevelt Rd                   Burnham Harbor  Subscriber    Male      1993.0      1  Sunday          12
+502       72582 2017-01-22 20:13:56  2017-01-22 20:24:40            644   Lake Shore Dr & Diversey Pkwy  Pine Grove Ave & Irving Park Rd  Subscriber    Male      1987.0      1  Sunday          20
+505      101356 2017-01-29 12:14:10  2017-01-29 12:26:40            750         Damen Ave & Melrose Ave   Ashland Ave & Belle Plaine Ave  Subscriber  Female      1985.0      1  Sunday          12
+666      101784 2017-01-29 14:54:59  2017-01-29 15:04:06            547              Wells St & Polk St               Clark St & Lake St  Subscriber    Male      1986.0      1  Sunday          14
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+2
+
+Calculating The Most Frequent Times of Travel...
+
+Most Common Month: January
+Most common day of week: Sunday
+Most common start hour: 13
+
+This took 0.0006699562072753906 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+3
+
+Calculating The Most Popular Stations and Trip...
+
+Most common start station: McClurg Ct & Illinois St
+Most common end station: Wabash Ave & Roosevelt Rd
+Most common combination of start station and end station trip: ('Wells St & Concord Ln', 'Clark St & Armitage Ave')
+
+This took 0.001600027084350586 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+4
+
+Calculating Trip Duration...
+
+Total travel time: 15d 21h 23m 57s
+Mean travel time: 12m 12s
+
+This took 0.0001990795135498047 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+5
+
+Calculating User Stats...
+
+Count of user types: User Type
+Subscriber    1643
+Customer       232
+Count of user gender: Gender
+Male      1250
+Female     393
+Earliest year of birth: 1945
+Most recent year of birth: 2000
+Most common year of birth: 1989
+
+This took 0.0009009838104248047 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+6
+
+Would you like to restart? Enter [y]yes or [n]no.
+n
+(.udacity) congdinh@CONGs-MacBook-Pro project-02-python % python bikeshare_2.py
+Hello! Let's explore some US bikeshare data!
+Please enter exit if you want to exit program.
+Would you like to see data for Chicago, New York City, Washington or "all" to apply no city filter?
+Los Angeles
+Please enter a valid option: WASHington
+Which month? January, February, March, April, May, June or "all" to apply no month filter?
+all
+Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or "all" to apply no day filter?
+all
+You want to see data for washington in ['january', 'february', 'march', 'april', 'may', 'june'] on ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']?
+Enter [y]yes or [n]no:
+y
+----------------------------------------
+=================== Loading data... ===================
+
+This took 0.5832703113555908 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+1
+How many rows do you want to display?
+10
+      Unnamed: 0          Start Time             End Time  Trip Duration                                                     Start Station                                                       End Station   User Type  Month Weekday  Start Hour
+35         34042 2017-01-09 12:29:00  2017-01-09 12:48:00       1138.896                             TJ Cmty Ctr / 2nd St & S Old Glebe Rd               Shirlington Transit Center / S Quincy & Randolph St  Subscriber      1  Monday          12
+210       117386 2017-01-23 09:42:00  2017-01-23 10:03:00       1267.685  Columbia Pike & S Dinwiddie St / Arlington Mill Community Center  Columbia Pike & S Dinwiddie St / Arlington Mill Community Center  Subscriber      1  Monday           9
+295        77719 2017-01-16 18:39:00  2017-01-16 18:55:00        933.324                                                     8th & O St NW                                       New Hampshire Ave & T St NW  Subscriber      1  Monday          18
+357       118393 2017-01-23 18:02:00  2017-01-23 18:17:00        866.366                                                     1st & M St NE                                                     4th & E St SW  Subscriber      1  Monday          18
+717        77760 2017-01-16 18:46:00  2017-01-16 18:52:00        365.124                                     Wisconsin Ave & Ingomar St NW                                  Wisconsin Ave & Brandywine St NW  Subscriber      1  Monday          18
+740       118876 2017-01-23 19:14:00  2017-01-23 19:19:00        295.286                                                    15th & P St NW                                                    15th & L St NW  Subscriber      1  Monday          19
+778       165966 2017-01-30 18:42:00  2017-01-30 18:52:00        594.179                                         14th St & New York Ave NW                                                   23rd & E St NW   Subscriber      1  Monday          18
+784       165009 2017-01-30 17:27:00  2017-01-30 17:44:00       1008.634                                                     1st & H St NW                                                    14th & V St NW  Subscriber      1  Monday          17
+946         5329 2017-01-02 18:57:00  2017-01-02 19:13:00        989.600                                              Lynn & 19th St North                                    California St & Florida Ave NW  Subscriber      1  Monday          18
+1352       32880 2017-01-09 08:08:00  2017-01-09 08:11:00        199.821                                          M St & New Jersey Ave SE                                           Potomac Ave & 8th St SE  Subscriber      1  Monday           8
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+2
+
+Calculating The Most Frequent Times of Travel...
+
+Most Common Month: June
+Most common day of week: Wednesday
+Most common start hour: 8
+
+This took 0.022632837295532227 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+3
+
+Calculating The Most Popular Stations and Trip...
+
+Most common start station: Columbus Circle / Union Station
+Most common end station: Columbus Circle / Union Station
+Most common combination of start station and end station trip: ('Jefferson Dr & 14th St SW', 'Jefferson Dr & 14th St SW')
+
+This took 0.05535006523132324 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+4
+
+Calculating Trip Duration...
+
+Total travel time: 4296d 2h 39m 45s
+Mean travel time: 20m 37s
+
+This took 0.0004661083221435547 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+5
+
+Calculating User Stats...
+
+Count of user types: User Type
+Subscriber    220786
+Customer       79214
+Gender stats cannot be calculated because Gender does not appear in the Washington city.
+Birth year stats cannot be calculated because Birth Year does not appear in the Washington city.
+
+This took 0.008506059646606445 seconds.
+----------------------------------------
+
+Please choose one of the options below:
+1. Display raw data
+2. Time stats
+3. Station stats
+4. Trip duration stats
+5. User stats
+6. Restart
+7. Exit
+7
+(.udacity) congdinh@CONGs-MacBook-Pro project-02-python % 
