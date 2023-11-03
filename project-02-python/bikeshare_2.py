@@ -209,7 +209,7 @@ def station_stats(df):
 def trip_duration_stats(df):
     """
     Displays statistics on the total and average trip duration.
-    
+
     Args:
         df - Pandas DataFrame containing city data filtered by month and day
     Returns:
@@ -246,12 +246,13 @@ def trip_duration_stats(df):
     print('-'*40)
 
 
-def user_stats(df):
+def user_stats(df, city):
     """
     Displays statistics on bikeshare users.
-    
+
     Args:
         df - Pandas DataFrame containing city data filtered by month and day
+        city - Name of the city to analyze
     Returns:
         None
     """
@@ -259,23 +260,33 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
+    stats = {}
+
     # Display counts of user types
     countOfUserTypes = df['User Type'].value_counts().to_string()
     print('Count of user types: {}'.format(countOfUserTypes))
 
     # Display counts of gender
-    countOfGender = df['Gender'].value_counts().to_string()
-    print('Count of user gender: {}'.format(countOfGender))
+    if 'Gender' in df.columns:
+        countOfGender = df['Gender'].value_counts().to_string()
+        print('Count of user gender: {}'.format(countOfGender))
+    else:
+        print('Gender stats cannot be calculated because Gender does not appear in the {} city.'.format(
+            city.title()))
 
     # Display earliest, most recent, and most common year of birth
-    earliestYearOfBirth = int(df['Birth Year'].min())
-    print('Earliest year of birth: {}'.format(earliestYearOfBirth))
+    if 'Birth Year' in df.columns:
+        earliestYearOfBirth = int(df['Birth Year'].min())
+        print('Earliest year of birth: {}'.format(earliestYearOfBirth))
 
-    mostRecentYearOfBirth = int(df['Birth Year'].max())
-    print('Most recent year of birth: {}'.format(mostRecentYearOfBirth))
+        mostRecentYearOfBirth = int(df['Birth Year'].max())
+        print('Most recent year of birth: {}'.format(mostRecentYearOfBirth))
 
-    mostCommonYearOfBirth = int(df['Birth Year'].mode()[0])
-    print('Most common year of birth: {}'.format(mostCommonYearOfBirth))
+        mostCommonYearOfBirth = int(df['Birth Year'].mode()[0])
+        print('Most common year of birth: {}'.format(mostCommonYearOfBirth))
+    else:
+        print('Birth year stats cannot be calculated because Birth Year does not appear in the {} city.'.format(
+            city.title()))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -315,7 +326,7 @@ def main():
             elif menu == '4':
                 trip_duration_stats(df)
             elif menu == '5':
-                user_stats(df)
+                user_stats(df, city)
             elif menu == '6':
                 break
             elif menu == '7':
